@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -12,13 +13,18 @@ const navItems = [
 
 const NavItems = () => {
   const pathname = usePathname();
+  const [currentPath, setCurrentPath] = useState<string | null>(null);
+  useEffect(() => {
+    setCurrentPath(pathname);
+  }, [pathname]);
+
   return (
     <nav className="flex items-center gap-4">
       {navItems.map(({ label, href }) => (
         <Link
           href={href}
           key={label}
-          className={cn(pathname === href && "text-primary font-semibold")}
+          className={cn(currentPath === href && "text-primary font-semibold")}
         >
           {label}
         </Link>
