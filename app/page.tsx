@@ -7,8 +7,8 @@ import React from "react";
 const Page = () => {
   return (
     <div>
-      <h1>Popular Companions</h1>
-      <section className="home-section">
+      <h1 className="ml-32">Popular Companions</h1>
+      <section className="home-section  flex items-center mt-8 justify-center mb-8">
         <CompanionCard
           id="123"
           name="Neura the Brainy Explorer"
@@ -34,12 +34,13 @@ const Page = () => {
           color="#BDE7FF"
         />
       </section>
-      <section className="home-section">
+      <section className="home-section flex items-center justify-center lg:ml-32 lg:w-7xl mb-16 ">
         <CompanionList
-          title="Recently completed sessions"
+          title="Recently  sessions"
           companions={recentSessions}
           classNames="w-2/3 max-lg:w-full"
         />
+
         <CTA />
       </section>
     </div>
